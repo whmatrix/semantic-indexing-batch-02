@@ -1,3 +1,8 @@
+> Portfolio repository demonstrating large-scale semantic indexing pipelines.
+> 
+> 8,355,163 vectors indexed across Wikipedia Featured Articles, ArXiv ML abstracts,
+> and StackExchange Python using e5-large-v2 embeddings and FAISS IndexFlatIP.
+
 # Portfolio Indexing Projects
 
 **Professional-grade semantic search indexing system demonstrating production-ready RAG capabilities**
