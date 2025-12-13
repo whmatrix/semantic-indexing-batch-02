@@ -1,0 +1,8 @@
+5.8G	chunks.json
+1.3G	metadata.jsonl
+4.0K	summary.json
+29G	vectors.index
+62e78045019bbced3e6b28479cba43d1e4d40e1ae635deb941c553b815d9a688  chunks.json
+9cf03f6ba81962e9a551aa6a415568df2fe7a05417a9b2e8381719034457a46e  metadata.jsonl
+b451e83b4389e4175e5d6008f89f79ea95f9439dd16e918eb534ba82c443ccf9  summary.json
+e7e6b44becf4704120cf58ee5f18474d8862c2a33a829d27a55b60809e67c08c  vectors.index
