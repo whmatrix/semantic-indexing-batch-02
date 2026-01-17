@@ -7,6 +7,20 @@
 
 **Professional-grade semantic search indexing system demonstrating production-ready RAG capabilities**
 
+---
+
+## Start Here
+
+This repo implements the indexing pipeline. For the full operational context, see:
+
+- **[Universal Protocol v4.23](https://github.com/whmatrix/universal-protocol-v4.23)** — Deliverable contracts, audit contracts, and quality gates
+- Example deliverable structure: [Semantic_Indexing_Output__Example_Structure.pdf](https://github.com/whmatrix/universal-protocol-v4.23/blob/main/portfolio_artifacts/Semantic_Indexing_Output__Example_Structure.pdf)
+- RAG Readiness Audit examples:
+  - [Portfolio_01_RAG_Readiness_Audit.pdf](https://github.com/whmatrix/universal-protocol-v4.23/blob/main/portfolio_artifacts/Portfolio_01_RAG_Readiness_Audit.pdf)
+  - [RAG_Readiness_Audit__Sample_Report.pdf](https://github.com/whmatrix/universal-protocol-v4.23/blob/main/portfolio_artifacts/RAG_Readiness_Audit__Sample_Report.pdf)
+
+---
+
 ## Overview
 
 This portfolio showcases three diverse, real-world datasets indexed with a Universal Protocol-compliant pipeline:
