@@ -1,3 +1,5 @@
+> **Status: PRODUCTION_PORTFOLIO (Canonical Implementation)**
+
 > Portfolio repository demonstrating large-scale semantic indexing pipelines.
 > 
 > 8,355,163 vectors indexed across Wikipedia Featured Articles, ArXiv ML abstracts,
@@ -18,6 +20,7 @@ This repo implements the indexing pipeline. For the full operational context, se
 - RAG Readiness Audit examples:
   - [Portfolio_01_RAG_Readiness_Audit.pdf](https://github.com/whmatrix/universal-protocol-v4.23/blob/main/portfolio_artifacts/Portfolio_01_RAG_Readiness_Audit.pdf)
   - [RAG_Readiness_Audit__Sample_Report.pdf](https://github.com/whmatrix/universal-protocol-v4.23/blob/main/portfolio_artifacts/RAG_Readiness_Audit__Sample_Report.pdf)
+- Earlier foundational work: [semantic-indexing-batch-01](https://github.com/whmatrix/semantic-indexing-batch-01) (superseded)
 
 ---
 
