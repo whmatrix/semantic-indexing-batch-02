@@ -12,9 +12,9 @@ echo "WARNING: This will run full indexing with GPU embedding"
 echo "Press Ctrl+C within 5 seconds to cancel..."
 sleep 5
 
-python3 /home/wade/CLAUDE/index_arxiv_ml_abstracts.py 2>&1 | tee /tmp/arxiv_ml_production.log
+python3 ./scripts/indexers/index_arxiv_ml_abstracts.py 2>&1 | tee /tmp/arxiv_ml_production.log
 
 echo ""
 echo "PRODUCTION RUN COMPLETE"
-echo "Output index: /media/wade/gork/indexed/arxiv_ml_abstracts"
+echo "Output index: ./results/indexes/arxiv_ml_abstracts"
 echo "Log saved to: /tmp/arxiv_ml_production.log"

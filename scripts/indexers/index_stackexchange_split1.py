@@ -9,9 +9,9 @@ This script:
 4. Embeds with e5-large-v2
 5. Builds FAISS IndexFlatIP
 
-Dataset: /media/wade/gork/training_datasets/misc_datasets/stackexchange_python
-Index:   /media/wade/gork/indexed/stackexchange_split1
-Work:    /home/wade/nvme_work/stackexchange_split1
+Dataset: ./datasets/stackexchange_python
+Index:   ./results/indexes/stackexchange_split1
+Work:    ./results/work_dirs/stackexchange_split1
 
 Usage:
     python3 index_stackexchange_python.py --dry-run
@@ -42,9 +42,10 @@ from sentence_transformers import SentenceTransformer
 # =============================================================================
 
 DATASET_NAME = "stackexchange_split1"
-DATASET_DIR = Path("/media/wade/gork/training_datasets/misc_datasets/stackexchange_split1")
-INDEX_DIR = Path("/media/wade/gork/indexed/stackexchange_split1")
-NVME_WORK_DIR = Path("/home/wade/nvme_work/stackexchange_split1")
+# NOTE: Update these paths for your local environment
+DATASET_DIR = Path("./datasets/stackexchange_split1")
+INDEX_DIR = Path("./results/indexes/stackexchange_split1")
+NVME_WORK_DIR = Path("./results/work_dirs/stackexchange_split1")
 
 EMBEDDING_MODEL = "intfloat/e5-large-v2"
 EMBEDDING_DIM = 1024

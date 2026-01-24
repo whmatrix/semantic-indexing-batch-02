@@ -9,9 +9,9 @@ This script:
 4. Embeds with e5-large-v2
 5. Builds FAISS IndexFlatIP
 
-Dataset: /media/wade/gork/training_datasets/misc_datasets/arxiv_ml_abstracts
-Index:   /media/wade/gork/indexed/arxiv_ml_abstracts
-Work:    /home/wade/nvme_work/arxiv_ml_abstracts
+Dataset: ./datasets/arxiv_ml_abstracts
+Index:   ./results/indexes/arxiv_ml_abstracts
+Work:    ./results/work_dirs/arxiv_ml_abstracts
 
 Usage:
     python3 index_arxiv_ml_abstracts.py --dry-run
@@ -41,9 +41,10 @@ from sentence_transformers import SentenceTransformer
 # =============================================================================
 
 DATASET_NAME = "arxiv_ml_abstracts"
-DATASET_DIR = Path("/media/wade/gork/training_datasets/misc_datasets/arxiv_ml_abstracts")
-INDEX_DIR = Path("/media/wade/gork/indexed/arxiv_ml_abstracts")
-NVME_WORK_DIR = Path("/home/wade/nvme_work/arxiv_ml_abstracts")
+# NOTE: Update these paths for your local environment
+DATASET_DIR = Path("./datasets/arxiv_ml_abstracts")
+INDEX_DIR = Path("./results/indexes/arxiv_ml_abstracts")
+NVME_WORK_DIR = Path("./results/work_dirs/arxiv_ml_abstracts")
 
 EMBEDDING_MODEL = "intfloat/e5-large-v2"
 EMBEDDING_DIM = 1024

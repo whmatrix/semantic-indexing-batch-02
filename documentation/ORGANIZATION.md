@@ -257,27 +257,15 @@ Examples:
 Scripts contain hardcoded paths for clarity and reproducibility:
 
 ```python
-DATASET_DIR = Path("/media/wade/gork/training_datasets/misc_datasets/wiki_featured")
-INDEX_DIR = Path("/media/wade/gork/indexed/wiki_featured")
-WORK_DIR = Path("/home/wade/nvme_work/wiki_featured")
+DATASET_DIR = Path("./datasets/wiki_featured")
+INDEX_DIR = Path("./results/indexes/wiki_featured")
+WORK_DIR = Path("./results/work_dirs/wiki_featured")
 ```
 
 **Rationale**:
-- Clear documentation of expected locations
+- Repository-relative paths for portability
 - No ambiguity about file locations
 - Easy to adapt for different environments
-
-### Professional & Clear Folder
-
-This self-contained copy uses local paths:
-
-```python
-BASE = "/home/wade/CLAUDE/__UNIVERSAL_PROTOCOL_CORE__/Professional & Clear/PORTFOLIO_INDEXING_PROJECTS"
-DATASET_DIR = Path(f"{BASE}/datasets/wiki_featured")
-INDEX_DIR = Path(f"{BASE}/results/indexes/wiki_featured")
-```
-
-**Note**: Original scripts reference `/media/wade/gork` paths as reference implementations.
 
 ---
 
@@ -423,7 +411,7 @@ watch -n 1 nvidia-smi
 watch -n 1 free -h
 
 # Disk
-df -h /home/wade/nvme_work
+df -h ./results/work_dirs
 ```
 
 ### 3. Stagger Parallel Starts
@@ -489,8 +477,7 @@ print(f'Vectors: {idx.ntotal:,}, Metadata: {meta_count:,}, Match: {idx.ntotal ==
 ## Contact & Support
 
 For questions about this organizational structure:
-- Reference: Universal Protocol Core documentation
-- Location: `/home/wade/CLAUDE/__UNIVERSAL_PROTOCOL_CORE__/`
+- Reference: [Universal Protocol v4.23](https://github.com/whmatrix/universal-protocol-v4.23)
 
 ---
 

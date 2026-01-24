@@ -3,8 +3,9 @@
 
 set -e
 
-SOURCE_DIR="/media/wade/gork/text_datasets/wiki/wiki_shards"
-TARGET_DIR="/media/wade/gork/training_datasets/misc_datasets/wiki_featured"
+# NOTE: Update these paths for your local environment
+SOURCE_DIR="./source_data/wiki/wiki_shards"  # Local source data
+TARGET_DIR="./datasets/wiki_featured"
 
 echo "========================================="
 echo "Preparing Wikipedia Featured Articles"

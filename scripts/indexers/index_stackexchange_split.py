@@ -15,7 +15,8 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Read the main indexer and modify it
-exec(open('/home/wade/CLAUDE/index_stackexchange_python.py').read())
+# NOTE: Update this path to point to your main indexer script
+exec(open('./scripts/indexers/index_stackexchange_python.py').read())
 
 # Override the discover_data_files function to filter by range
 original_discover = discover_data_files
@@ -37,7 +38,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Modify work directory to be split-specific
-    NVME_WORK_DIR = Path(f"/home/wade/nvme_work/stackexchange_python_split{args.split_id}")
+    NVME_WORK_DIR = Path(f"./results/work_dirs/stackexchange_python_split{args.split_id}")
     DATASET_NAME = f"stackexchange_python_split{args.split_id}"
 
     # Override globals

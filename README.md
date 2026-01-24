@@ -169,7 +169,7 @@ All indexers implement the Universal Batch Indexing & Verification Engine (UAIO)
 ### Quick Start
 
 ```bash
-cd /home/wade/CLAUDE/PORTFOLIO_INDEXING_PROJECTS
+cd <repo-root>/
 
 # Prepare all datasets
 ./scripts/preparation/PREPARE_ALL_PORTFOLIO_DATASETS.sh
@@ -216,21 +216,13 @@ tail -f /tmp/stackexchange_split{1..5}.log
 
 ### Index Locations
 
-**Professional & Clear (Production-Ready)**:
+**Repository Structure (Production-Ready)**:
 ```
-~/CLAUDE/__UNIVERSAL_PROTOCOL_CORE__/Professional & Clear/PORTFOLIO_INDEXING_PROJECTS/results/indexes/
+./results/indexes/
 ├── wiki_featured/                  # 352,606 vectors
 ├── arxiv_ml_abstracts/             # 489,294 vectors
 ├── stackexchange_python/           # 7,513,263 vectors (merged)
 └── stackexchange_split{1-5}/       # Individual splits (archived)
-```
-
-**Original Locations** (Reference):
-```
-/media/wade/gork/indexed/wiki_featured/
-/media/wade/gork/indexed/stackexchange_python/
-/media/wade/gork/indexed/arxiv_ml_abstracts/
-/media/wade/gork/indexed/stackexchange_split{1-5}/
 ```
 
 ### Index File Structure

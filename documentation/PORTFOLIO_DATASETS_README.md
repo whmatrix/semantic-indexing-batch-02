@@ -48,7 +48,7 @@ python -m wikiextractor.WikiExtractor \
 **Where to place:**
 
 ```bash
-/media/wade/gork/training_datasets/misc_datasets/wiki_featured/
+./datasets/wiki_featured/
 ```
 
 ### 2. StackExchange Python Q&A
@@ -88,7 +88,7 @@ python -m wikiextractor.WikiExtractor \
 **Where to place:**
 
 ```bash
-/media/wade/gork/training_datasets/misc_datasets/stackexchange_python/
+./datasets/stackexchange_python/
 ```
 
 ### 3. ArXiv ML Abstracts
@@ -129,7 +129,7 @@ python -m wikiextractor.WikiExtractor \
 **Where to place:**
 
 ```bash
-/media/wade/gork/training_datasets/misc_datasets/arxiv_ml_abstracts/
+./datasets/arxiv_ml_abstracts/
 ```
 
 ## Usage
@@ -138,7 +138,7 @@ python -m wikiextractor.WikiExtractor \
 
 ```bash
 # Run dry-run tests for all three datasets
-cd /home/wade/CLAUDE
+cd .
 ./RUN_PORTFOLIO_ALL_DRYRUN.sh
 ```
 
@@ -187,19 +187,19 @@ This will scan all datasets and estimate:
 After successful indexing, each dataset will have:
 
 ```
-/media/wade/gork/indexed/wiki_featured/
+./results/indexes/wiki_featured/
 ├── vectors.index       # FAISS IndexFlatIP
 ├── chunks.json         # Text chunks
 ├── metadata.jsonl      # Metadata for each vector
 └── summary.json        # Index statistics
 
-/media/wade/gork/indexed/stackexchange_python/
+./results/indexes/stackexchange_python/
 ├── vectors.index
 ├── chunks.json
 ├── metadata.jsonl
 └── summary.json
 
-/media/wade/gork/indexed/arxiv_ml_abstracts/
+./results/indexes/arxiv_ml_abstracts/
 ├── vectors.index
 ├── chunks.json
 ├── metadata.jsonl
@@ -259,7 +259,7 @@ All three together show **multi-domain expertise** with **production-quality inf
 
 ```bash
 # Check if dataset directories exist
-ls /media/wade/gork/training_datasets/misc_datasets/
+ls ./datasets/
 ```
 
 Create missing directories and populate with data following the "Dataset Preparation" section above.
@@ -279,7 +279,7 @@ nvidia-smi
 free -h
 
 # Disk space on NVMe
-df -h /home/wade/nvme_work/
+df -h ./results/work_dirs/
 ```
 
 ### Failed Integrity Check
@@ -294,7 +294,7 @@ Common causes:
 Solution:
 ```bash
 # Clear work directory and restart
-rm -rf /home/wade/nvme_work/[dataset_name]
+rm -rf ./results/work_dirs/[dataset_name]
 ./RUN_PORTFOLIO_[DATASET]_PRODUCTION.sh
 ```
 
@@ -349,10 +349,10 @@ All scripts support graceful shutdown (Ctrl+C). To resume:
 2. **Test with dry-run**: Run `./RUN_PORTFOLIO_ALL_DRYRUN.sh`
 3. **Review estimates**: Check estimated vector counts
 4. **Run production**: Execute `./RUN_PORTFOLIO_ALL_PRODUCTION.sh`
-5. **Verify outputs**: Check `/media/wade/gork/indexed/` for completed indexes
+5. **Verify outputs**: Check `./results/indexes/` for completed indexes
 
 ## Support
 
 For issues or questions, refer to:
-- `/home/wade/CLAUDE/__UNIVERSAL_PROTOCOL_CORE__/The Universal Batch Indexing & Verification Engine.MD`
-- `/home/wade/CLAUDE/__UNIVERSAL_PROTOCOL_CORE__/EXAMPLE SCRIPT.MD`
+- `./__UNIVERSAL_PROTOCOL_CORE__/The Universal Batch Indexing & Verification Engine.MD`
+- `./__UNIVERSAL_PROTOCOL_CORE__/EXAMPLE SCRIPT.MD`

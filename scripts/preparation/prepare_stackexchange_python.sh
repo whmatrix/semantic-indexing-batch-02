@@ -3,8 +3,9 @@
 
 set -e
 
-SOURCE_DIR="/media/wade/gork/training_datasets/misc_datasets/stackxchange"
-TARGET_DIR="/media/wade/gork/training_datasets/misc_datasets/stackexchange_python"
+# NOTE: Update these paths for your local environment
+SOURCE_DIR="./source_data/stackexchange"  # Local source data
+TARGET_DIR="./datasets/stackexchange_python"
 
 echo "========================================="
 echo "Preparing StackExchange Python Dataset"

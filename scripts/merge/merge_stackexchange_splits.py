@@ -14,7 +14,8 @@ import faiss
 import time
 
 # Paths
-BASE_DIR = Path("/home/wade/CLAUDE/__UNIVERSAL_PROTOCOL_CORE__/Professional & Clear/PORTFOLIO_INDEXING_PROJECTS/results/indexes")
+# NOTE: Update this path for your local environment
+BASE_DIR = Path("./results/indexes")
 SPLIT_INDEX_DIRS = [
     BASE_DIR / f"stackexchange_split{i}"
     for i in range(1, 6)
@@ -124,7 +125,7 @@ def merge_indexes():
     # Write summary
     summary = {
         "dataset_name": "stackexchange_python",
-        "raw_dataset_path": "/media/wade/gork/training_datasets/misc_datasets/stackexchange_python",
+        "raw_dataset_path": "./datasets/stackexchange_python",
         "total_vectors": final_index.ntotal,
         "embedding_model": "intfloat/e5-large-v2",
         "embedding_dimension": EMBEDDING_DIM,

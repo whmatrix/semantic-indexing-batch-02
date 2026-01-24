@@ -21,19 +21,19 @@ echo ""
 echo "========================================="
 echo "DATASET 1/3: Wikipedia Featured Articles"
 echo "========================================="
-python3 /home/wade/CLAUDE/index_wiki_featured.py 2>&1 | tee /tmp/wiki_featured_production.log
+python3 ./scripts/indexers/index_wiki_featured.py 2>&1 | tee /tmp/wiki_featured_production.log
 
 echo ""
 echo "========================================="
 echo "DATASET 2/3: StackExchange Python Q&A"
 echo "========================================="
-python3 /home/wade/CLAUDE/index_stackexchange_python.py 2>&1 | tee /tmp/stackexchange_python_production.log
+python3 ./scripts/indexers/index_stackexchange_python.py 2>&1 | tee /tmp/stackexchange_python_production.log
 
 echo ""
 echo "========================================="
 echo "DATASET 3/3: ArXiv ML Abstracts"
 echo "========================================="
-python3 /home/wade/CLAUDE/index_arxiv_ml_abstracts.py 2>&1 | tee /tmp/arxiv_ml_production.log
+python3 ./scripts/indexers/index_arxiv_ml_abstracts.py 2>&1 | tee /tmp/arxiv_ml_production.log
 
 echo ""
 echo "========================================="
@@ -41,9 +41,9 @@ echo "ALL PRODUCTION RUNS COMPLETE"
 echo "========================================="
 echo ""
 echo "Output indexes:"
-echo "  /media/wade/gork/indexed/wiki_featured"
-echo "  /media/wade/gork/indexed/stackexchange_python"
-echo "  /media/wade/gork/indexed/arxiv_ml_abstracts"
+echo "  ./results/indexes/wiki_featured"
+echo "  ./results/indexes/stackexchange_python"
+echo "  ./results/indexes/arxiv_ml_abstracts"
 echo ""
 echo "Logs saved to:"
 echo "  /tmp/wiki_featured_production.log"

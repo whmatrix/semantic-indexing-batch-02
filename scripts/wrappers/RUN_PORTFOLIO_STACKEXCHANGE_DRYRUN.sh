@@ -9,7 +9,7 @@ echo "StackExchange Python Q&A - DRY RUN"
 echo "========================================="
 echo ""
 
-python3 /home/wade/CLAUDE/index_stackexchange_python.py --dry-run
+python3 ./scripts/indexers/index_stackexchange_python.py --dry-run
 
 echo ""
 echo "DRY RUN COMPLETE"

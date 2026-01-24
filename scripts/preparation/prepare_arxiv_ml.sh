@@ -3,8 +3,9 @@
 
 set -e
 
-SOURCE_DIR="/media/wade/gork/text_datasets/redpajama"
-TARGET_DIR="/media/wade/gork/training_datasets/misc_datasets/arxiv_ml_abstracts"
+# NOTE: Update these paths for your local environment
+SOURCE_DIR="./source_data/redpajama"  # Local source data
+TARGET_DIR="./datasets/arxiv_ml_abstracts"
 
 echo "========================================="
 echo "Preparing ArXiv ML Abstracts Dataset"

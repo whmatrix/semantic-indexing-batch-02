@@ -9,9 +9,9 @@ This script:
 4. Embeds with e5-large-v2
 5. Builds FAISS IndexFlatIP
 
-Dataset: /media/wade/gork/training_datasets/misc_datasets/wiki_featured
-Index:   /media/wade/gork/indexed/wiki_featured
-Work:    /home/wade/nvme_work/wiki_featured
+Dataset: ./datasets/wiki_featured
+Index:   ./results/indexes/wiki_featured
+Work:    ./results/work_dirs/wiki_featured
 
 Usage:
     python3 index_wiki_featured.py --dry-run
@@ -41,9 +41,10 @@ from sentence_transformers import SentenceTransformer
 # =============================================================================
 
 DATASET_NAME = "wiki_featured"
-DATASET_DIR = Path("/media/wade/gork/training_datasets/misc_datasets/wiki_featured")
-INDEX_DIR = Path("/media/wade/gork/indexed/wiki_featured")
-NVME_WORK_DIR = Path("/home/wade/nvme_work/wiki_featured")
+# NOTE: Update these paths for your local environment
+DATASET_DIR = Path("./datasets/wiki_featured")
+INDEX_DIR = Path("./results/indexes/wiki_featured")
+NVME_WORK_DIR = Path("./results/work_dirs/wiki_featured")
 
 EMBEDDING_MODEL = "intfloat/e5-large-v2"
 EMBEDDING_DIM = 1024
