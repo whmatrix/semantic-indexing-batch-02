@@ -313,3 +313,11 @@ All code follows Universal Protocol standards for reproducibility and compliance
 **Created**: December 2025
 **Status**: Production-Ready
 **Contact**: Professional portfolio demonstration
+
+## Protocol Alignment
+
+This indexing run conforms to the
+[Universal Protocol v4.23](https://github.com/whmatrix/universal-protocol-v4.23).
+
+All dataset ingestion, chunking, embedding, FAISS construction,
+and validation artifacts follow the schemas and constraints defined there.
