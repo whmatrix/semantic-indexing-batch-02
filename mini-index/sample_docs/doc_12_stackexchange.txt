@@ -1,0 +1,11 @@
+StackExchange: Technical Q&A at Scale
+
+StackExchange is a network of question-and-answer communities covering a wide range of technical and non-technical topics. Stack Overflow, the largest community, hosts over 23 million programming questions with answers rated by community voting.
+
+The StackExchange data dump provides structured access to questions, answers, votes, tags, and user information. The Python tag alone covers millions of questions spanning beginner syntax to advanced library usage. This diversity makes it excellent for testing retrieval systems across varying complexity levels.
+
+Processing StackExchange data for semantic search involves combining question titles, bodies, and accepted answers into coherent passages. HTML content must be stripped, code blocks handled appropriately, and very short or duplicate posts filtered. The resulting corpus captures real developer information needs.
+
+Community voting provides natural relevance signals. Questions with high view counts represent common information needs, while highly-voted answers represent authoritative responses. These signals can augment vector similarity for more effective retrieval ranking.
+
+Indexing StackExchange at scale demonstrates production readiness. Processing millions of Q&A pairs with proper chunking, embedding, and FAISS index construction validates the pipeline's ability to handle real-world data volumes and heterogeneous content.

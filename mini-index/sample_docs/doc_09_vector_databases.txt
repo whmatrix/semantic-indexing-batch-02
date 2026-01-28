@@ -1,0 +1,11 @@
+Vector Databases and Index Management
+
+Vector databases are specialized storage systems designed for efficient similarity search over high-dimensional vectors. They combine vector indexing algorithms with database features like CRUD operations, filtering, and scalability.
+
+Popular vector databases include Pinecone, Weaviate, Milvus, Qdrant, and ChromaDB. Each offers different trade-offs between performance, features, and deployment complexity. FAISS, while not a full database, provides the indexing primitives that many vector databases build upon.
+
+Index management involves creating, updating, and maintaining vector indices as documents are added or modified. Incremental indexing adds new vectors without rebuilding the entire index. Shard-based architectures distribute vectors across multiple index partitions for horizontal scaling.
+
+Metadata filtering allows combining vector similarity with structured queries. For example, retrieving the most similar vectors that also match certain category tags or date ranges. This capability is essential for production search systems that need both semantic and faceted search.
+
+Data integrity in vector stores requires alignment between vectors and their associated metadata. The fundamental invariant is: len(vectors) == len(chunks) == len(metadata). Manifest files (summary.json) record index statistics and serve as integrity checkpoints.

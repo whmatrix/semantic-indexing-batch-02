@@ -1,0 +1,11 @@
+Semantic Search and Dense Retrieval
+
+Semantic search refers to search techniques that understand the meaning and intent behind queries, rather than relying solely on keyword matching. Unlike traditional lexical search, semantic search can find relevant documents even when they use different terminology.
+
+Dense retrieval encodes both queries and documents into dense vector representations using neural language models. The E5 family of models (EmbEddings from bidirEctional Encoder rEpresentations) are specifically designed for text embeddings. The e5-large-v2 model produces 1024-dimensional vectors optimized for retrieval tasks.
+
+A key innovation in dense retrieval is asymmetric encoding, where queries and documents use different prefixes. For E5 models, queries are prefixed with "query:" while documents use "passage:" prefix. This asymmetry helps the model distinguish between the different roles in the retrieval process.
+
+Approximate nearest neighbor (ANN) search enables efficient retrieval from large vector collections. Techniques include locality-sensitive hashing, product quantization, and graph-based methods. These trade small amounts of accuracy for orders-of-magnitude speedups over brute-force search.
+
+Hybrid search combines dense retrieval with traditional keyword matching (BM25) to leverage the strengths of both approaches. Dense retrieval excels at semantic understanding while keyword matching handles exact term matching and rare words effectively.

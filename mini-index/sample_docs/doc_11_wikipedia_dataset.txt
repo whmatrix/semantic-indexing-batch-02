@@ -1,0 +1,11 @@
+Wikipedia as a Knowledge Base for NLP
+
+Wikipedia is one of the most widely used knowledge bases in natural language processing. Its structured, freely available content makes it ideal for training and evaluating information retrieval systems. Wikipedia Featured Articles represent the highest quality tier, with extensive peer review.
+
+The English Wikipedia contains over 6.7 million articles covering virtually every topic. Featured Articles undergo rigorous review for accuracy, completeness, and writing quality. They represent approximately 0.1% of all articles but serve as gold-standard content for indexing benchmarks.
+
+Processing Wikipedia for search involves extracting article text, removing markup and metadata, and chunking content into retrieval-friendly segments. Articles range from a few hundred to tens of thousands of words, requiring adaptive chunking strategies.
+
+Wikipedia's category system provides natural topic labels for evaluation. Articles are organized in a hierarchical taxonomy that enables both broad topic clustering and fine-grained category matching. This structure supports evaluation of retrieval precision across different topic granularities.
+
+Dense indexing of Wikipedia creates a knowledge graph where articles are connected not just by hyperlinks but by semantic similarity. This enables discovery of related articles that share conceptual overlap even without explicit cross-references.

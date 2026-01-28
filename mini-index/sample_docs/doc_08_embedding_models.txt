@@ -1,0 +1,11 @@
+Text Embedding Models for Retrieval
+
+Text embedding models convert text into dense vector representations that capture semantic meaning. These vectors enable similarity-based search, clustering, and classification tasks. Modern embedding models are trained on large-scale datasets with contrastive learning objectives.
+
+The E5 (EmbEddings from bidirEctional Encoder rEpresentations) family of models is designed specifically for text embeddings. E5-large-v2 produces 1024-dimensional vectors and achieves state-of-the-art performance on retrieval benchmarks. It uses instruction-based training with query and passage prefixes for asymmetric retrieval.
+
+Sentence-BERT (SBERT) adapts BERT for producing semantically meaningful sentence embeddings. It uses siamese and triplet network structures to derive fixed-size representations that can be compared using cosine similarity. The sentence-transformers library provides a unified interface for these models.
+
+Embedding quality metrics include retrieval accuracy (Recall@k, NDCG), semantic textual similarity (STS) benchmarks, and clustering quality measures. The MTEB (Massive Text Embedding Benchmark) provides standardized evaluation across 56 datasets covering 8 different tasks.
+
+Fine-tuning embedding models on domain-specific data can significantly improve retrieval performance. Techniques include contrastive learning with hard negatives, knowledge distillation from cross-encoders, and multi-task training with diverse objectives.

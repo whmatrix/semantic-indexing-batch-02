@@ -1,0 +1,11 @@
+Reproducibility in Machine Learning Research
+
+Reproducibility is the ability to obtain consistent results using the same input data, methods, and analysis conditions. In machine learning, reproducibility challenges arise from randomness, hardware dependencies, and software environment differences.
+
+Deterministic execution requires controlling all sources of randomness: random seeds, data shuffling order, GPU non-determinism, and floating-point arithmetic variations. Setting explicit seeds for Python's random module, NumPy, and PyTorch provides baseline determinism.
+
+Environment reproducibility involves documenting and locking software dependencies. Requirements files (requirements.txt), virtual environments (venv, conda), and container images (Docker) capture the execution environment. Hardware specifications (GPU model, CUDA version) should also be documented.
+
+Result verification compares outputs against reference artifacts. For vector indices, verification includes: vector count matches, dimension consistency, summary statistics alignment, and sample query result comparison. Checksums provide byte-level verification of large binary files.
+
+Open-source tooling supports reproducibility through version control (git), continuous integration (GitHub Actions), and artifact registries. Automated tests that rebuild and verify pipeline outputs on every code change provide ongoing reproducibility assurance.

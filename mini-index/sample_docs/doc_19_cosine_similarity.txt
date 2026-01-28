@@ -1,0 +1,11 @@
+Similarity Metrics for Vector Search
+
+Similarity metrics quantify how alike two vectors are in a high-dimensional space. The choice of metric affects both retrieval quality and computational efficiency. Common metrics include cosine similarity, inner product, and Euclidean distance.
+
+Cosine similarity measures the cosine of the angle between two vectors, ignoring magnitude. It ranges from -1 (opposite) to 1 (identical direction). For normalized vectors, cosine similarity equals the inner product, making FAISS IndexFlatIP suitable for both metrics.
+
+Inner product (dot product) computes the sum of element-wise products. When vectors are L2-normalized, inner product equals cosine similarity. E5 models produce normalized embeddings by default, so IndexFlatIP effectively computes cosine similarity.
+
+Euclidean distance (L2) measures the straight-line distance between vector endpoints. It is related to cosine similarity for normalized vectors: d(a,b) = sqrt(2 - 2*cos(a,b)). IndexFlatL2 implements brute-force L2 search.
+
+Approximate nearest neighbor algorithms trade exact similarity computation for speed. Product quantization approximates distances using codebook lookups. Graph-based methods (HNSW) navigate a proximity graph to find neighbors efficiently. The choice between exact and approximate search depends on collection size and latency requirements.

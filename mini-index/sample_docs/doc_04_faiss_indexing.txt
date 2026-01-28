@@ -1,0 +1,11 @@
+FAISS: Fast Similarity Search at Scale
+
+FAISS (Facebook AI Similarity Search) is an open-source library for efficient similarity search and clustering of dense vectors. It is widely used in production systems for nearest neighbor search across billions of vectors.
+
+IndexFlatIP performs exact inner product search with no compression or approximation. While it provides perfect recall, its linear scan complexity makes it suitable for collections up to a few million vectors. For larger collections, approximate methods are necessary.
+
+IndexIVF (Inverted File Index) partitions the vector space into Voronoi cells using k-means clustering. At search time, only a subset of cells are scanned, dramatically reducing search time. The nprobe parameter controls the accuracy-speed tradeoff.
+
+Product quantization (PQ) compresses vectors by splitting them into sub-vectors and quantizing each independently. This reduces memory usage by 10-100x while maintaining reasonable search accuracy. IVFPQ combines inverted file indexing with product quantization for scalable approximate search.
+
+GPU-accelerated FAISS can process millions of vectors per second, making it suitable for real-time applications. The library supports both single-GPU and multi-GPU configurations, with automatic memory management and batch processing capabilities.

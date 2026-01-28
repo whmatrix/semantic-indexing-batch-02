@@ -1,0 +1,11 @@
+Information Retrieval Systems
+
+Information retrieval (IR) is the activity of obtaining information system resources that are relevant to an information need from a collection of resources. Searches can be based on full-text or content-based indexing. Web search engines are the most visible IR applications.
+
+The classic IR model includes document indexing, query processing, and relevance ranking. Documents are represented as vectors in a high-dimensional space using techniques like TF-IDF (term frequency-inverse document frequency) or dense embeddings. Queries are similarly represented, and relevance is computed using similarity measures.
+
+Vector space models represent documents and queries as vectors in a shared space. Cosine similarity and inner product are common similarity metrics. Dense retrieval methods use neural network encoders to create semantic embeddings that capture meaning beyond keyword matching.
+
+FAISS (Facebook AI Similarity Search) is a library for efficient similarity search and clustering of dense vectors. It provides implementations of various indexing structures including flat (brute-force), IVF (inverted file), and HNSW (hierarchical navigable small world) graphs.
+
+Evaluation metrics for IR systems include precision, recall, F1-score, mean average precision (MAP), and normalized discounted cumulative gain (NDCG). These metrics measure different aspects of retrieval quality and are essential for comparing system performance.

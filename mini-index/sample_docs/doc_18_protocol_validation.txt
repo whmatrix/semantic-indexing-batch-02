@@ -1,0 +1,11 @@
+Protocol-Driven Validation for ML Systems
+
+Protocol-driven validation defines explicit contracts for inputs, outputs, and quality gates at each pipeline stage. Unlike ad-hoc testing, protocols provide standardized acceptance criteria that are machine-verifiable and auditable.
+
+A deliverable contract specifies the exact artifacts a pipeline must produce. For semantic indexing, the contract includes: chunks.jsonl (text segments), metadata.jsonl (per-chunk metadata), vectors.index (FAISS index), and summary.json (manifest with statistics and quality metrics).
+
+Quality gates are pass/fail checkpoints embedded in the pipeline. Examples include: vector-chunk alignment (len(vectors) == len(chunks)), self-containment score above threshold, mid-word break rate below threshold, and encoding validity. Gates that fail halt the pipeline and produce diagnostic output.
+
+Audit artifacts provide evidence of pipeline execution and compliance. The summary.json manifest includes: total counts, quality metrics, processing timestamps, configuration parameters, and status flags. External auditors can verify claims by inspecting these artifacts without re-running the pipeline.
+
+Version-controlled protocols enable reproducibility across time and environments. Universal Protocol v4.23 defines the canonical contract for RAG-ready indices, including deliverable structure, quality thresholds, and verification procedures. All pipeline implementations reference this specification.

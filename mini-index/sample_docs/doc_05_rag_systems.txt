@@ -1,0 +1,11 @@
+Retrieval-Augmented Generation (RAG)
+
+Retrieval-Augmented Generation combines information retrieval with language generation to produce more accurate and grounded responses. Instead of relying solely on parametric knowledge, RAG systems retrieve relevant documents from an external knowledge base and use them as context for generation.
+
+The RAG pipeline consists of three stages: indexing, retrieval, and generation. During indexing, documents are chunked, embedded, and stored in a vector database. At query time, the user's question is encoded and used to retrieve the most relevant chunks. These chunks are then provided as context to a language model for answer generation.
+
+Chunking strategies significantly impact RAG performance. Fixed-size chunking splits documents into uniform segments, while semantic chunking uses natural boundaries like paragraphs or sections. Overlapping chunks help preserve context across boundaries. The optimal chunk size depends on the embedding model and the nature of the content.
+
+Quality gates in RAG systems include chunk integrity checks (no mid-word breaks, proper encoding), alignment verification (vector count matches chunk count), and retrieval quality metrics (relevance scores, diversity of retrieved documents). Production RAG systems require systematic validation of each pipeline stage.
+
+Advanced RAG techniques include query expansion, hypothetical document embeddings (HyDE), and re-ranking with cross-encoders. Multi-hop retrieval chains multiple retrieval steps to answer complex questions that require synthesizing information from multiple sources.

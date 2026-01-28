@@ -1,0 +1,11 @@
+Evaluating Search and Retrieval Systems
+
+Evaluation is critical for understanding retrieval system performance and guiding improvements. Standard metrics measure different aspects of retrieval quality, from binary relevance to graded judgments.
+
+Precision at K (P@K) measures the fraction of relevant documents in the top K results. Recall at K (R@K) measures the fraction of all relevant documents found in the top K. The F1 score balances precision and recall into a single metric.
+
+Mean Average Precision (MAP) averages precision across all recall levels for each query, then averages across queries. It rewards systems that rank relevant documents higher. Normalized Discounted Cumulative Gain (NDCG) accounts for graded relevance judgments and position-based discounting.
+
+Mean Reciprocal Rank (MRR) focuses on the rank of the first relevant result. It is particularly useful when users care most about finding any relevant document quickly. MRR is the harmonic mean of the ranks of first relevant results across queries.
+
+A/B testing evaluates retrieval systems in production by routing traffic between control and experimental systems. Click-through rates, dwell time, and query reformulation rates provide implicit relevance feedback. Online metrics often differ from offline benchmarks, making production evaluation essential.

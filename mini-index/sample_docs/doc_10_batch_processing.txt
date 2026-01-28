@@ -1,0 +1,11 @@
+Batch Processing for Large-Scale Indexing
+
+Batch processing pipelines are essential for indexing millions of documents efficiently. Key design patterns include producer-consumer architectures, checkpointing for fault tolerance, and resource balancing for optimal hardware utilization.
+
+Producer-consumer patterns separate data loading from computation. Producer threads read and preprocess documents, placing chunks in a shared queue. Consumer threads (typically GPU workers) embed chunks in batches and write results. Queue back-pressure prevents memory exhaustion.
+
+Checkpointing enables resumable long-running operations. At regular intervals (e.g., every million vectors), the pipeline saves its current state including the partial index, processed file list, and queue position. On restart, processing resumes from the last checkpoint.
+
+GPU resource management is critical for multi-process indexing. VRAM monitoring prevents out-of-memory errors by adjusting batch sizes dynamically. RAM balancing pauses producers when system memory pressure exceeds thresholds, preventing swap and system instability.
+
+Split-merge patterns enable parallel processing of large datasets. The dataset is partitioned into equal segments, each processed by an independent indexer. After all segments complete, a merge step combines partial indices into a single unified index with consistent numbering and metadata.

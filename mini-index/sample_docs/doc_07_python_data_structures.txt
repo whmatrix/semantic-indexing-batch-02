@@ -1,0 +1,11 @@
+Python Data Structures for Machine Learning
+
+Python provides several built-in data structures essential for machine learning workflows. Lists, dictionaries, sets, and tuples form the foundation, while specialized libraries extend these capabilities for numerical computing.
+
+NumPy arrays are the backbone of scientific computing in Python. They provide efficient storage and operations on multi-dimensional arrays of homogeneous data. Broadcasting rules allow operations between arrays of different shapes, and vectorized operations avoid Python's interpreter overhead.
+
+Pandas DataFrames offer labeled, two-dimensional data structures with heterogeneous columns. They excel at data loading, cleaning, and transformation tasks common in ML pipelines. GroupBy operations, merge/join capabilities, and built-in statistics make Pandas indispensable for data preparation.
+
+JSONL (JSON Lines) format stores one JSON object per line, making it ideal for streaming large datasets. Each line is independently parseable, enabling parallel processing and efficient append operations. This format is widely used in NLP and information retrieval for storing text chunks with metadata.
+
+Memory-mapped files (numpy.memmap) allow working with arrays larger than available RAM by storing data on disk and loading portions on demand. This technique is essential for handling large embedding matrices and vector indices that exceed system memory.

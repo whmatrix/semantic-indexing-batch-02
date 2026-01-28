@@ -1,0 +1,11 @@
+GPU Computing for Machine Learning
+
+Graphics Processing Units (GPUs) provide massive parallelism essential for modern machine learning. Their architecture features thousands of cores optimized for matrix operations, making them ideal for neural network training and inference.
+
+CUDA (Compute Unified Device Architecture) is NVIDIA's parallel computing platform. It provides APIs for managing GPU memory, launching kernel functions, and synchronizing computation. PyTorch and TensorFlow abstract CUDA details while leveraging GPU acceleration transparently.
+
+VRAM (Video RAM) management is critical for batch processing. Loading embedding models typically requires 2-4 GB of VRAM, while batch encoding requires additional memory proportional to batch size and sequence length. Out-of-memory errors can be handled by reducing batch size or using mixed precision.
+
+Mixed precision (FP16) training and inference halve memory usage while maintaining model quality for most tasks. Tensor cores on modern NVIDIA GPUs (Volta and later) provide hardware-accelerated FP16 computation with 2-3x throughput improvement over FP32.
+
+Multi-GPU strategies include data parallelism (each GPU processes different batches) and model parallelism (different model layers on different GPUs). For embedding generation, data parallelism is most effective since the model fits on a single GPU while throughput scales linearly with GPU count.

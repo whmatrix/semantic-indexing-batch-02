@@ -1,0 +1,11 @@
+The Transformer Architecture
+
+The Transformer architecture, introduced in the paper "Attention is All You Need" by Vaswani et al. in 2017, revolutionized natural language processing. It replaces recurrent layers with self-attention mechanisms, enabling parallel processing of sequence elements.
+
+Self-attention computes a weighted sum of all positions in a sequence, with weights determined by the compatibility between query and key vectors. Multi-head attention allows the model to jointly attend to information from different representation subspaces at different positions.
+
+The encoder-decoder structure of the original Transformer uses stacked layers of multi-head attention and feed-forward networks. Positional encodings provide information about token positions since the architecture lacks inherent sequential processing.
+
+BERT (Bidirectional Encoder Representations from Transformers) uses only the encoder stack and is pre-trained with masked language modeling. GPT models use only the decoder stack with causal (left-to-right) attention for autoregressive text generation.
+
+Modern transformer variants include efficient attention mechanisms (linear attention, sparse attention), mixture-of-experts architectures, and retrieval-augmented models. These innovations address the quadratic computational cost of standard self-attention and enable processing of longer contexts.

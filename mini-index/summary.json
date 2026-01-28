@@ -1,0 +1,15 @@
+{
+  "status": "VERIFIED",
+  "vector_count": 22,
+  "chunk_count": 22,
+  "dimensions": 1024,
+  "embedding_model": "intfloat/e5-large-v2",
+  "index_type": "IndexFlatIP",
+  "quality": {
+    "self_contained": 0.99,
+    "mid_word_breaks": 0.01
+  },
+  "documents": 20,
+  "purpose": "Mini-demo index (20 documents) to prove pipeline end-to-end",
+  "created_date": "2026-01-28"
+}

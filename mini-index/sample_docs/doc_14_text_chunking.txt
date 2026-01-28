@@ -1,0 +1,11 @@
+Text Chunking Strategies for RAG
+
+Text chunking divides long documents into smaller segments suitable for embedding and retrieval. The choice of chunking strategy significantly impacts both embedding quality and retrieval effectiveness. No single strategy works best for all document types.
+
+Fixed-size chunking splits text at regular character or token intervals. While simple to implement, it risks splitting sentences and ideas mid-thought. Word-aligned chunking improves this by ensuring splits occur at word boundaries, avoiding partial words in chunk boundaries.
+
+Overlapping chunks include content from adjacent segments, preserving context across boundaries. A typical configuration uses 100-200 character overlap with 1000-1500 character chunks. This redundancy improves retrieval recall at the cost of increased index size.
+
+Section-aware chunking uses document structure (headings, paragraphs, lists) to create semantically coherent chunks. This approach works well for structured documents like Wikipedia articles or technical documentation but requires format-specific parsing.
+
+Chunk quality metrics include self-containment (the chunk makes sense on its own), mid-word break rate (percentage of chunks cut mid-word), and average information density. Production systems enforce quality gates: self-containment above 0.95 and mid-word breaks below 0.02.
