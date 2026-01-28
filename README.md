@@ -164,9 +164,27 @@ All indexers implement the Universal Batch Indexing & Verification Engine (UAIO)
   - `metadata.jsonl` - Chunk metadata
   - `summary.json` - Index statistics
 
+## Try It Small First
+
+This repo indexes 8.35M vectors from 26.5 GB of source data — it requires an NVIDIA GPU with 48 GB VRAM and 128 GB RAM.
+
+**Want to try the pipeline without the hardware requirements?** Use [research-corpus-discovery](https://github.com/whmatrix/research-corpus-discovery), which runs the same embedding model and FAISS index type on a small PDF corpus:
+
+```bash
+git clone https://github.com/whmatrix/research-corpus-discovery
+cd research-corpus-discovery
+pip install -r scripts/requirements.txt
+python scripts/build_index.py --pdf_dir ./sample_docs/ --output_dir ./demo_index
+python scripts/query.py --index ./demo_index/faiss.index --chunks ./demo_index/chunks.jsonl
+```
+
+See [QUICK_START.md](https://github.com/whmatrix/research-corpus-discovery/blob/main/QUICK_START.md) for a full walkthrough. The pipeline, embedding model (e5-large-v2), and index type (FAISS IndexFlatIP) are the same — only the scale differs.
+
+---
+
 ## Usage
 
-### Quick Start
+### Quick Start (Full Scale)
 
 ```bash
 cd <repo-root>/
