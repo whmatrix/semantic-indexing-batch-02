@@ -168,21 +168,40 @@ All indexers implement the Universal Batch Indexing & Verification Engine (UAIO)
   - `metadata.jsonl` - Chunk metadata
   - `summary.json` - Index statistics
 
-### Embedding & Similarity Details
+### Similarity Semantics
 
-- **Normalization:** All embeddings are L2-normalized at encode time. This means inner product (IP) equals cosine similarity.
-- **Why IndexFlatIP:** On L2-normalized vectors, `dot(a, b) == cos(a, b)`. FAISS IndexFlatIP computes exact inner product, which is equivalent to cosine similarity when vectors have unit norm.
-- **Query prefix:** `"query: "` (per E5 model spec for asymmetric retrieval)
-- **Chunk prefix:** `"passage: "` (per E5 model spec)
-- **Score range:** [0, 1] where 1.0 = identical embedding direction
+**Normalization:** All embeddings are L2-normalized (unit norm) at encode time.
+- Formula: `v_norm = v / ||v||_2` where `||v_norm||_2 = 1.0`
+- Applied to both passage embeddings (at index time) and query embeddings (at search time)
+
+**Why IndexFlatIP equals cosine similarity:**
+- Cosine similarity: `cos(a, b) = dot(a, b) / (||a|| * ||b||)`
+- When `||a|| = ||b|| = 1.0`: `cos(a, b) = dot(a, b)` (inner product)
+- FAISS IndexFlatIP computes exact inner product — no approximation, no quantization
+
+**Asymmetric encoding** (per E5 model specification):
+- Queries: prefixed with `"query: "` before encoding
+- Chunks: prefixed with `"passage: "` before encoding
+- This asymmetry is trained into the model and is required for optimal retrieval
+
+**Score interpretation:**
+| Score Range | Meaning |
+|-------------|---------|
+| 0.90 - 1.00 | Near-identical semantic content |
+| 0.80 - 0.90 | Strongly related |
+| 0.70 - 0.80 | Topically related |
+| < 0.70 | Weak or incidental overlap |
+
+Scores are meaningful for **ranking within a single index** but not for cross-index or cross-model comparison. A score of 0.85 in a Wikipedia index is not comparable to 0.85 in a StackExchange index.
 
 **Query-time flow:**
-1. Query string is prefixed with `"query: "`
-2. Encoded by e5-large-v2 with L2 normalization
-3. Inner product search against all indexed vectors
-4. Top-k results returned, ranked by descending score
+1. Input query string
+2. Prefix with `"query: "`
+3. Encode with e5-large-v2, L2-normalize
+4. Compute inner product against all indexed vectors (FAISS IndexFlatIP)
+5. Return top-k results ranked by descending score
 
-**Reproducibility:** Given the same input text, model version, and normalization, embeddings are deterministic. Rebuilding from the same dataset produces byte-identical FAISS indices.
+**Reproducibility:** Identical input text + model version + normalization = deterministic embeddings. Rebuilding from the same dataset produces byte-identical FAISS indices.
 
 ## Try It Small First
 
