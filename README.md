@@ -189,6 +189,52 @@ See [QUICK_START.md](https://github.com/whmatrix/research-corpus-discovery/blob/
 
 ---
 
+## What's Actually In This Repository
+
+### Included (Run These Yourself)
+- `scripts/` — All indexing code (fully runnable)
+- `mini-index/` — Tiny 20-doc demo (proves pipeline, <5 seconds)
+- `ARCHITECTURE.md` — System design + data flow diagrams
+- `documentation/` — Setup guides + specifications
+- `.github/workflows/` — Smoke-test CI/CD (on every push)
+
+### Not Included (Storage Limits, But Reproducible)
+- **Datasets** (26.5GB total)
+  - Wikipedia Featured: Public, fetch with `scripts/preparation/prepare_wiki_featured.sh`
+  - ArXiv ML: Public, fetch with `scripts/preparation/prepare_arxiv_ml.sh`
+  - StackExchange: Public, fetch with `scripts/preparation/prepare_stackexchange_python.sh`
+- **Full Production Indices** (70GB total)
+  - Or rebuild locally (see "Reproduce the Full Index" below)
+
+### Reproduce the Full Index (If You Have GPU + Time)
+
+```bash
+# Step 1: Get datasets (automatic download)
+./scripts/preparation/PREPARE_ALL_PORTFOLIO_DATASETS.sh
+
+# Step 2: Dry-run validation (no GPU, fast)
+./scripts/wrappers/RUN_PORTFOLIO_ALL_DRYRUN.sh
+
+# Step 3: Build production index (GPU recommended)
+./scripts/wrappers/RUN_PORTFOLIO_ARXIV_PRODUCTION.sh
+./scripts/wrappers/RUN_PORTFOLIO_WIKIPEDIA_PRODUCTION.sh
+./scripts/wrappers/RUN_PORTFOLIO_STACKEXCHANGE_PRODUCTION.sh
+```
+
+### Quickest Proof (No GPU, Under 60 Seconds)
+
+Don't want to download 26.5GB? Verify the pipeline works instantly:
+
+```bash
+cd mini-index
+pip install sentence-transformers faiss-cpu
+python demo_query.py
+```
+
+This loads a real FAISS index, runs 3 semantic queries, returns ranked results, and proves the pipeline is end-to-end functional. See `mini-index/summary.json` for quality metrics.
+
+---
+
 ## Usage
 
 ### Quick Start (Full Scale)
