@@ -1,3 +1,4 @@
+> **Author:** John Mitchell (@whmatrix)
 > **Status: PRODUCTION_PORTFOLIO (Canonical Implementation)**
 
 > Portfolio repository demonstrating large-scale semantic indexing pipelines.
