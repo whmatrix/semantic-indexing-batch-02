@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this indexing pipeline in your work, please cite as below."
+authors:
+  - family-names: "Mitchell"
+    given-names: "John"
+title: "Semantic Indexing Batch 02: Large-Scale FAISS Indexing Pipeline"
+version: 1.0.0
+date-released: 2025-12-15
+url: "https://github.com/whmatrix/semantic-indexing-batch-02"
+type: software
+keywords:
+  - semantic-indexing
+  - faiss
+  - vector-search
+  - rag
+  - e5-large-v2
+license: MIT

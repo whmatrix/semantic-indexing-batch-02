@@ -415,6 +415,20 @@ All code follows Universal Protocol standards for reproducibility and compliance
 **Status**: Production-Ready
 **Contact**: Professional portfolio demonstration
 
+## What You Get
+
+| Deliverable | Format | Guarantee |
+|-------------|--------|-----------|
+| Vector index | FAISS IndexFlatIP (exact cosine via L2-normalized inner product) | Deterministic, byte-reproducible |
+| Chunk corpus | JSONL with metadata | len(vectors) == len(chunks) == len(metadata) |
+| Audit summary | JSON manifest | Pass/fail quality gates per Universal Protocol v4.23 |
+
+**What this is not:** No human-judged relevance labels. No MRR/MAP/NDCG claims. Scores are cosine similarity (vector alignment), not precision or recall. Domain suitability requires independent evaluation.
+
+**Reproduce it:** `git clone https://github.com/whmatrix/semantic-indexing-batch-02 && cd semantic-indexing-batch-02/mini-index && pip install sentence-transformers faiss-cpu && python demo_query.py`
+
+---
+
 ## Limitations & Non-Claims
 
 This index demonstrates large-scale semantic indexing capability (8.35M+ vectors) but makes no claims about retrieval quality, relevance, or suitability for specific applications. Use case specificity and evaluation require domain-specific testing.
