@@ -306,6 +306,12 @@ All code follows Universal Protocol standards for reproducibility and compliance
 **Status**: Production-Ready
 **Contact**: Professional portfolio demonstration
 
+## Limitations & Non-Claims
+
+This index demonstrates large-scale semantic indexing capability (8.35M+ vectors) but makes no claims about retrieval quality, relevance, or suitability for specific applications. Use case specificity and evaluation require domain-specific testing.
+
+---
+
 ## Protocol Alignment
 
 This indexing run conforms to the
