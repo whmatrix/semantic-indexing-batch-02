@@ -168,6 +168,22 @@ All indexers implement the Universal Batch Indexing & Verification Engine (UAIO)
   - `metadata.jsonl` - Chunk metadata
   - `summary.json` - Index statistics
 
+### Embedding & Similarity Details
+
+- **Normalization:** All embeddings are L2-normalized at encode time. This means inner product (IP) equals cosine similarity.
+- **Why IndexFlatIP:** On L2-normalized vectors, `dot(a, b) == cos(a, b)`. FAISS IndexFlatIP computes exact inner product, which is equivalent to cosine similarity when vectors have unit norm.
+- **Query prefix:** `"query: "` (per E5 model spec for asymmetric retrieval)
+- **Chunk prefix:** `"passage: "` (per E5 model spec)
+- **Score range:** [0, 1] where 1.0 = identical embedding direction
+
+**Query-time flow:**
+1. Query string is prefixed with `"query: "`
+2. Encoded by e5-large-v2 with L2 normalization
+3. Inner product search against all indexed vectors
+4. Top-k results returned, ranked by descending score
+
+**Reproducibility:** Given the same input text, model version, and normalization, embeddings are deterministic. Rebuilding from the same dataset produces byte-identical FAISS indices.
+
 ## Try It Small First
 
 This repo indexes 8.35M vectors from 26.5 GB of source data — it requires an NVIDIA GPU with 48 GB VRAM and 128 GB RAM.
