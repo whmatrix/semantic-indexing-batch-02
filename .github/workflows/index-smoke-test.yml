@@ -1,0 +1,102 @@
+name: Index Smoke Test (Mini-Build)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'mini-index/**'
+      - '.github/workflows/index-smoke-test.yml'
+  pull_request:
+    branches: [main]
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install sentence-transformers faiss-cpu numpy
+
+    - name: Load and verify mini-index
+      run: |
+        python << 'EOF'
+        import faiss
+        import json
+
+        print("\n" + "=" * 60)
+        print("Index Smoke Test")
+        print("=" * 60)
+
+        # Load mini-index
+        index = faiss.read_index("mini-index/vectors.index")
+
+        with open("mini-index/chunks.jsonl") as f:
+            chunks = [json.loads(line) for line in f]
+
+        with open("mini-index/summary.json") as f:
+            summary = json.load(f)
+
+        # Assertions
+        assert index.ntotal == len(chunks), \
+            f"Vector count {index.ntotal} != chunk count {len(chunks)}"
+
+        assert index.ntotal == summary["vector_count"], \
+            f"Vector count {index.ntotal} != summary {summary['vector_count']}"
+
+        assert index.d == 1024, f"Dimension {index.d} != 1024"
+
+        print(f"Index integrity verified")
+        print(f"  Total vectors: {index.ntotal}")
+        print(f"  Total chunks: {len(chunks)}")
+        print(f"  Dimensions: {index.d}")
+        print(f"  Status: {summary['status']}")
+        print("=" * 60 + "\n")
+        EOF
+
+    - name: Test query functionality
+      run: |
+        python << 'EOF'
+        import faiss
+        import json
+        from sentence_transformers import SentenceTransformer
+
+        print("\n" + "=" * 60)
+        print("Query Test")
+        print("=" * 60)
+
+        # Load
+        index = faiss.read_index("mini-index/vectors.index")
+        with open("mini-index/chunks.jsonl") as f:
+            chunks = [json.loads(line) for line in f]
+
+        # Model
+        model = SentenceTransformer("intfloat/e5-large-v2")
+
+        # Test queries
+        test_queries = ["semantic search", "machine learning", "vector database"]
+
+        for query in test_queries:
+            # Embed
+            qvec = model.encode(f"query: {query}", normalize_embeddings=True)
+
+            # Search
+            D, I = index.search(qvec.reshape(1, -1), k=1)
+
+            # Assert non-empty
+            assert len(I[0]) > 0, f"Query '{query}' returned no results"
+            assert D[0][0] > 0, f"Query '{query}' score invalid"
+
+            print(f"Query '{query}': score={D[0][0]:.3f}")
+
+        print("=" * 60 + "\n")
+        EOF
