@@ -1,8 +1,11 @@
 > **Author:** John Mitchell (@whmatrix)
-> **Status: PRODUCTION_PORTFOLIO (Canonical Implementation)**
+> **Status:** ACTIVE
+> **Audience:** ML Engineers / Data Architects / Recruiters
+> **Environment:** GPU recommended (CPU-only mode available)
+> **Fast Path:** `cd mini-index && python demo_query.py` (under 60 seconds)
 
 > Portfolio repository demonstrating large-scale semantic indexing pipelines.
-> 
+>
 > 8,355,163 vectors indexed across Wikipedia Featured Articles, ArXiv ML abstracts,
 > and StackExchange Python using e5-large-v2 embeddings and FAISS IndexFlatIP.
 
