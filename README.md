@@ -180,6 +180,12 @@ python scripts/query.py --index ./demo_index/faiss.index --chunks ./demo_index/c
 
 See [QUICK_START.md](https://github.com/whmatrix/research-corpus-discovery/blob/main/QUICK_START.md) for a full walkthrough. The pipeline, embedding model (e5-large-v2), and index type (FAISS IndexFlatIP) are the same — only the scale differs.
 
+**If you have the datasets locally**, you can also smoke-test with dry-run mode, which validates the pipeline without running GPU embeddings:
+
+```bash
+./scripts/wrappers/RUN_PORTFOLIO_ALL_DRYRUN.sh
+```
+
 ---
 
 ## Usage
